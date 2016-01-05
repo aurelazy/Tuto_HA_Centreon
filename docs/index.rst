@@ -12,6 +12,7 @@ Contents:
    :maxdepth: 2
 
    Introduction
+   Configuration_OS
 
 
 Indices and tables
