@@ -2,7 +2,6 @@
 Configurer notre OS
 ************************
 
-# Création d'alias:
 .. |prompt1| replace:: [root@CES3-2]# 
 .. |prompt2| replace:: [root@CES3-2-slave]# 
 
