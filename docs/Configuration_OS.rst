@@ -34,4 +34,8 @@ Comme d'habitude, nous allons faire une petite mise à jour de nos dépots:
     |prompt2| yum update
 
 
+.. parsed-literal::
+
+    |prompt1| yum update
+
 
