@@ -117,7 +117,7 @@ Configurer Corosync
 
 Nous devons dire à Corosync de s'authentifier avec l'utilisateur ``hacluster``
 
-.. parser-literal::
+.. parsed-literal::
     
     |prompt1| pcs cluster auth |ces1| |ces2|
     Username: hacluster
@@ -127,7 +127,7 @@ Nous devons dire à Corosync de s'authentifier avec l'utilisateur ``hacluster``
 
 Ensuite, il faut générer et synchroniser la configuration:
 
-.. parser-literal::
+.. parsed-literal::
 
     |prompt1| pcs cluster setup --name ``mycluster`` |ces1| |ces2|
 
