@@ -10,9 +10,13 @@ Nous verrons tout cela au cours de ce tutoriel.
 Vous pourrez trouver les articles/tutos sur lesquels je me suis basé:
 
 `ClusterLabs <http://clusterlabs.org/doc/en-US/Pacemaker/1.1-pcs/html/Cluster_from_Scratch/_configure_corosync.html>`_
+
 `Encore ClusterLabs < http://clusterlabs.org/doc/en-US/Pacemaker/1.1/html/Pacemaker_Explained/>`_
+
 `DRBD <http://www.dbsysnet.com/2015/09/drbd-sur-debian-6/>`_
+
 `DRBD bis <http://www.dbsysnet.com/2015/09/un-cluster-drbdmysql-avec-heartbeat-sur-debian-7/>`_
+
 `En cas d'erreur DRBD <https://www.guillaume-leduc.fr/recuperer-drbd-de-letat-standalone-unknown.html>`_
 
 
