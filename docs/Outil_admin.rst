@@ -21,7 +21,10 @@ Utilisation de pcs
 ====================
 
 Nous allons voir quelques commandes utiles à l'administration et à la configuration de notre cluster.
-Ne rentrez pas les commandes qui vont suivre, car ce paragraphe est plus pensé comme un "pense bête" qu'autre chose.
+
+.. note:: Ne rentrez pas les commandes qui vont suivre, car ce paragraphe est plus pensé comme un "pense bête" qu'autre chose.
+
+
 Je me suis dis, "autant le mettre à ce moment là, comme on en parle !".
 
 Alors la première commande que l'on peut faire pour se familiariser avec ``pcs`` est la suivante:

@@ -14,6 +14,7 @@ Contents:
    Introduction
    Configuration_OS
    Outil_admin
+   Demarrage_cluster
 
 
 Indices and tables
