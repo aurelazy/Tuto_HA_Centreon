@@ -10,9 +10,6 @@ Configurer notre OS
 .. |ip2| replace:: 192.168.56.121
 .. |ipvirt| replace:: 192.168.56.122
 
-***************************
-Configurer notre OS
-***************************
 
 Tout d'abord, nous allons faire un petit point sur l'architecture.
 
@@ -140,15 +137,9 @@ Dans l'option "--name" vous mettez ce que vous voulez comme "CentreonCluster" pa
         Error connecting to <node> - (HTTP error: 500)
         Error : Unable to set cluster.conf
 
-    il suffit de créer le dossier "cluster":
+    il suffit de créer le dossier "cluster" sur les 2 noeuds:
 
     .. code-block:: bash
 
         mkdir /etc/cluster
-
-
-
-
-
-
 
