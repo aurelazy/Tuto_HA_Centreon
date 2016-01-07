@@ -2,7 +2,7 @@
 Création de notre cluster actif/passif
 ****************************************
 
-Avant de créer notre premier cluster, nous allons vérifier les informations de nos noeuds, savoir s'ils sont connectés entre eux, s'il sont "online", voir leur configuration, ...
+Avant de créer notre premier cluster, nous allons vérifier les informations de nos noeuds, savoir s'ils sont connectés entre eux, s'ils sont "online", voir leur configuration, ...
 
   
 .. code-block:: bash
