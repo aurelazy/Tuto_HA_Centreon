@@ -8,8 +8,8 @@ Les outils existant
 
 
 Il existe 2 outils pour administrer notre solution:
-* ``pcs``
-* ``crmsh``
+ * ``pcs``
+ * ``crmsh``
  
 Nous utiliserons pcs dans ce tutoriel.
  
@@ -56,10 +56,10 @@ Alors la première commande que l'on peut faire pour se familiariser avec ``pcs`
 Donc avec cette comande, on peut voir les possibilités que nous offre ``pcs``.
 Je ne vais pas approfondir toutes les commandes que l'on voit ci-dessus.
 Nous allons "survoler" les commandes suivantes:
-* cluster
-* resource
-* constraint
-* status
+ * cluster
+ * resource
+ * constraint
+ * status
 
 Je met "survoler" car je ne vais pas rentrer dans les tréfonds de ce sytème, ce tutoriel permet de faire un cluster fonctionnel rapidement et la partie cutomisation n'est pas traité.
 
