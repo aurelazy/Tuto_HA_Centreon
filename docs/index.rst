@@ -15,6 +15,7 @@ Contents:
    Configuration_OS
    Outil_admin
    Demarrage_cluster
+   Creer_cluster
 
 
 Indices and tables
