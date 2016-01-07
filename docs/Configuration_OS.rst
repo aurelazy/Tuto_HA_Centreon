@@ -14,8 +14,8 @@ Configurer notre OS
 Tout d'abord, nous allons faire un petit point sur l'architecture.
 
 Pour ce projet, nous partirons sur un cluster actif/passif sur 2 noeuds:
-* Le premier noeud sera **CES3-2** avec pour @IP **192.168.56.120**
-* Le second noeud sera **CES3-2-slave** avec pour @IP **192.168.56.121**
+ * Le premier noeud sera **CES3-2** avec pour @IP **192.168.56.120**
+ * Le second noeud sera **CES3-2-slave** avec pour @IP **192.168.56.121**
 
 Nous voulons que notre supervision soit accessible depuis @IP virtuelle **192.168.56.122**
 
