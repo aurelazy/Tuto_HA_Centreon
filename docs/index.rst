@@ -17,6 +17,7 @@ Contents:
    Demarrage_cluster
    Creer_cluster
    Ajout_Centreon
+   Install_DRBD
 
 
 Indices and tables
