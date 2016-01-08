@@ -16,6 +16,7 @@ Contents:
    Outil_admin
    Demarrage_cluster
    Creer_cluster
+   Ajout_Centreon
 
 
 Indices and tables
