@@ -171,6 +171,26 @@ Vous pouvez lancer la commande suivante pour vérifier la configuration:
 Ajout du Filesystem dans notre cluster
 ========================================
 
+Pour que notre DRBD fonctionne, nous devons pouvoir monter le filesystem automatiquement depuis le cluster.
+
+Nous devons dire au cluster où le monter et quand.
+
+Nous allons créer un fichier de configuration XML et l'envoyer lorsque nous aurons ajouter toutes nos informations.
+
+.. code-block:: bash
+
+    pcs cluster cib fs_cfg
+    pcs -f fs_cfg resource create CentreonFS Filesystem device="/dev/drbd0" directory="/mnt/r0/" fstype="ext4"
+    pcs -f fs_cfg constraint colocation add CentreonFS with CentreonDataClone INFINITY with-rsc-role=Master
+    pcs -f fs_cfg constraint order promote CentreonDataClone then start CentreonFS
+    pcs -f fs_cfg constraint order CentreonFS then ClusterCentreon
+    # On pourrait ajouter aussi mais on l'a pas créé encore:
+    # pcs -f fs_cfg constraint order CentreonFS the mysql
+    # pcs -f fs_cfg colocation add mysql with CentreonFS INFINITY
+
+Reprendre à "REVIEW THE UPDATED CONFIGURATION"
+
+
 
 
 En cas d'erreur sur notre DRBD
