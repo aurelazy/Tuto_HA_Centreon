@@ -123,6 +123,71 @@ Voici à quoi doit ressembler notre fichier (ATTENTION remplacez avec vos inform
     }
 
 
-l
+
+Ajout de DRBD dans notre cluster
+=================================
+
+Maintenant, nous pouvons ajouter DRBD au cluster.
+Il faudra bien faire attention de rentrer les bonnes informations, car celui-ci pourra planter si les informations sont erronées.
+
+Tout d'abord, nous allons créer un fichier XML de configuration grace à la commande "CIB"
+
+Sur le noeud 1:
+
+.. code-block:: bash
+
+    pcs cluster cib drbd_cfg
+
+
+Nous pouvons maintenant peupler notre fichier sans envoyer la configuration au cluster tout de suite grace à l'option "-f drbd_cfg"
+
+.. code-block:: bash
+    
+    pcs -f drbd_cfg resource create CentreonData ocf:linbit:drbd drbd_resource=r0 op monitor interval=60s
+    pcs -f drbd_cfg resource master CentreonDataClone CentreonData master-max=1 master-node-max=1 clone-max=2 clone-node-max=1 notify=true
+
+    pcs -f drbd_cfg resource show
+
+
+La premiere ligne permet de créer notre resource "drbd" (ocf:linbit;drbd) que l'on va appeler ``CentreonData`` où nous utiliserons la resource drbd ``r0`` que nous avons créé ultérieurement.
+
+La ligne d'après va permettre de créer un "clone" qui va permettre à la ressource d'être lancer sur les 2 noeuds en même temps tout en spécifiant le nombre de resource maitre possible, ...
+
+La derniere ligne permet de vérifier nos informations.
+
+Nous pouvons envoyer la configuration au cluster:
+
+.. code-block:: bash
+
+    pcs cluster cib-push drbd_cfg
+
+Vous pouvez lancer la commande suivante pour vérifier la configuration:
+
+.. code-block:: bash
+
+    pcs status
+
+
+Ajout du Filesystem dans notre cluster
+========================================
+
+
+
+En cas d'erreur sur notre DRBD
+===============================
+
+Alors voici 2 sites qui vont permettrent de remettre à flot notre synchronisation.
+Les erreurs peuvent survenir lors d'un crash d'un de nos 2 serveurs, il faut donc vérifier l'état de notre synchro.
+
+`Split-Brain <https://www.hastexo.com/resources/hints-and-kinks/solve-drbd-split-brain-4-steps>`_
+`Standalone <https://www.guillaume-leduc.fr/recuperer-drbd-de-letat-standalone-unknown.html>`_
+
+Attention, par contre, l'etat "WFConnection" peut survenir lorsque qu'un des 2 noeud est en etat standby, donc il suffit juste de lancer la commande 
+
+.. code-block:: bash
+
+    pcs cluster unstandby <le-noeud>
+
+
 
 .. [#f1] `Site de Denis Rosenkranz <http://denisrosenkranz.com/tuto-ha-drbd-sur-debian-6/>`_
