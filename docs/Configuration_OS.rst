@@ -42,7 +42,7 @@ Ok, nos 2 noeuds sont à jour, nous allons vérifier le "hostname" de celle-ci (
 
 .. parsed-literal::
 
-    |prompt1| uname -u
+    |prompt1| uname -n
 
 Ce qui me donne 
 
@@ -97,6 +97,7 @@ Lorsque tous les paquets sont installés, nous devons dire au système de lancer
 
     sudo chkconfig pcsd --add
     sudo service pcsd start
+    sudo chkconfig pcsd on
 
 Lors de l'installation, l'utilisateur ``hacluster`` sera créé.
 Nous devons lui ajouter un mot de passe sur les 2 noeuds:
