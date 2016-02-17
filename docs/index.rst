@@ -18,6 +18,7 @@ Contents:
    Creer_cluster
    Ajout_Centreon
    Install_DRBD
+   Peupler_DRBD
 
 
 Indices and tables
