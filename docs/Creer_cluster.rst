@@ -61,15 +61,21 @@ On peut voir le fichier de configuration écrit en XML depuis la commande:
 .. code-block:: bash
 
     root@CES3-2:~# pcs cluster cib
-    <cib admin_epoch="0" cib-last-written="Wed Jan  6 10:09:52 2016" crm_feature_set="3.0.9" epoch="132" have-quorum="1" num_updates="54" validate-with="pacemaker-2.0" dc-uuid="CES3-2">
+    <cib admin_epoch="0" cib-last-written="Wed Jan  6 10:09:52 2016" crm_feature_set="3.0.9" \ 
+    epoch="132" have-quorum="1" num_updates="54" validate-with="pacemaker-2.0" dc-uuid="CES3-2">
       <configuration>
           <crm_config>
                 <cluster_property_set id="cib-bootstrap-options">
-                    <nvpair id="cib-bootstrap-options-dc-version" name="dc-version" value="1.1.11-97629de"/>
-                    <nvpair id="cib-bootstrap-options-cluster-infrastructure" name="cluster-infrastructure" value="cman"/>
-                    <nvpair id="cib-bootstrap-options-stonith-enabled" name="stonith-enabled" value="false"/>
-                    <nvpair id="cib-bootstrap-options-no-quorum-policy" name="no-quorum-policy" value="ignore"/>
-                    <nvpair id="cib-bootstrap-options-last-lrm-refresh" name="last-lrm-refresh" value="1451914735"/>
+                    <nvpair id="cib-bootstrap-options-dc-version" name="dc-version" \
+                    value="1.1.11-97629de"/>
+                    <nvpair id="cib-bootstrap-options-cluster-infrastructure" \
+                    name="cluster-infrastructure" value="cman"/>
+                    <nvpair id="cib-bootstrap-options-stonith-enabled" name="stonith-enabled" \
+                    value="false"/>
+                    <nvpair id="cib-bootstrap-options-no-quorum-policy" name="no-quorum-policy" \ 
+                    value="ignore"/>
+                    <nvpair id="cib-bootstrap-options-last-lrm-refresh" name="last-lrm-refresh" \ 
+                    value="1451914735"/>
                 </cluster_property_set>
             </crm_config>
             <nodes>
@@ -116,7 +122,8 @@ Nous devons également lui dire le delai entre chaque vérification, ici nous me
 
 .. code-block:: bash
 
-    root@CES3-2:~# pcs resource create ClusterIP ocf:heartbeat:IPaddr2 ip=192.168.56.122 cidr_netmask=24 op monitor interval=30s
+    root@CES3-2:~# pcs resource create ClusterIP ocf:heartbeat:IPaddr2 ip=192.168.56.122 \ 
+    cidr_netmask=24 op monitor interval=30s
 
 
 Cette ligne est assez compréhensible, "resource create" permet de créer une ressource du nom de "ClusterIP", "ip=" permet de lui assigner une @ip, avec son "cidr_netmask=", "op monitor" on l'a vu plus haut.

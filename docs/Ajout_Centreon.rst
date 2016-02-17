@@ -44,9 +44,12 @@ Bon maintenant on peut ajouter "Centreon" à notre cluster en créent les ressou
 
 .. code-block:: bash
 
-    pcs resource create cbd lsb:cbd migration-threshold=2 op monitor interval=30s --group=ClusterCentreon
-    pcs resource create centcore lsb:centcore migration-threshold=2 op monitor interval=30s --group=ClusterCentreon
-    pcs resource create centengine lsb:centengine migration-threshold=2 op monitor interval=30s --group=ClusterCentreon
+    pcs resource create cbd lsb:cbd migration-threshold=2 op monitor interval=30s \ 
+    --group=ClusterCentreon
+    pcs resource create centcore lsb:centcore migration-threshold=2 op monitor interval=30s \ 
+    --group=ClusterCentreon
+    pcs resource create centengine lsb:centengine migration-threshold=2 op monitor interval=30s \ 
+    --group=ClusterCentreon
 
 
 Alors voila ici nous utiliserons le type de ressource ``lsb`` car les scripts "init" de Centreon ne sont pas créé pour ``ocf``
@@ -152,9 +155,11 @@ Bon on va enlever cette contrainte, il faut d'abord la retrouver:
       Resource: ClusterCentreon
         Enabled on: CES3-2 (score: INFINITY) (id:location-ClusterCentreon-CES3-2-INFINITY)
     Ordering Constraints:
-      start ClusterIP then start ClusterCentreon (kind:Mandatory) (id:order-ClusterIP-ClusterCentreon-mandatory)
+      start ClusterIP then start ClusterCentreon (kind:Mandatory) 
+      (id:order-ClusterIP-ClusterCentreon-mandatory)
     Colocation Constraints:
-      ClusterCentreon with ClusterIP (score:INFINITY) (id:colocation-ClusterCentreon-ClusterIP-INFINITY)
+      ClusterCentreon with ClusterIP (score:INFINITY) 
+      (id:colocation-ClusterCentreon-ClusterIP-INFINITY)
 
 
 On récupère l'ID de notre contrainte, ici "location-ClusterCentreon-CES3-2-INFINITY" pour l'enlever

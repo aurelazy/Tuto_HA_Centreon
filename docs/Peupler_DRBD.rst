@@ -44,7 +44,8 @@ Pour etre lisible, j'ai créer les dossiers avec le chemin exacte de nos dossier
 
 .. code-block:: bash
 
-    mkdir -p /mnt/r0/etc/{centreon,centreon-broker,centreon-engine,centreon-syslog,httpd/conf.d,cron.d}
+    mkdir -p \ 
+    /mnt/r0/etc/{centreon,centreon-broker,centreon-engine,centreon-syslog,httpd/conf.d,cron.d}
     mkdir -p /mnt/r0/usr/share/{centreon,centreon-engine,centreon-syslog}
     mkdir -p /mnt/r0/var/lib/{centreon,centreon-broker,centreon-engine,mysql}
     mkdir -p /mnt/r0/var/log/{centreon,centreon-broker,centreon-engine,centreon-syslog}

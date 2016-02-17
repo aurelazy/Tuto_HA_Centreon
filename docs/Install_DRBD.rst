@@ -143,8 +143,10 @@ Nous pouvons maintenant peupler notre fichier sans envoyer la configuration au c
 
 .. code-block:: bash
     
-    pcs -f drbd_cfg resource create CentreonData ocf:linbit:drbd drbd_resource=r0 op monitor interval=60s
-    pcs -f drbd_cfg resource master CentreonDataClone CentreonData master-max=1 master-node-max=1 clone-max=2 clone-node-max=1 notify=true
+    pcs -f drbd_cfg resource create CentreonData ocf:linbit:drbd drbd_resource=r0 op monitor \ 
+    interval=60s
+    pcs -f drbd_cfg resource master CentreonDataClone CentreonData master-max=1 master-node-max=1 \ 
+    clone-max=2 clone-node-max=1 notify=true
 
     pcs -f drbd_cfg resource show
 
@@ -180,8 +182,10 @@ Nous allons créer un fichier de configuration XML et l'envoyer lorsque nous aur
 .. code-block:: bash
 
     pcs cluster cib fs_cfg
-    pcs -f fs_cfg resource create CentreonFS Filesystem device="/dev/drbd0" directory="/mnt/r0/" fstype="ext4"
-    pcs -f fs_cfg constraint colocation add CentreonFS with CentreonDataClone INFINITY with-rsc-role=Master
+    pcs -f fs_cfg resource create CentreonFS Filesystem device="/dev/drbd0" \ 
+    directory="/mnt/r0/" fstype="ext4"
+    pcs -f fs_cfg constraint colocation add CentreonFS with CentreonDataClone INFINITY \ 
+    with-rsc-role=Master
     pcs -f fs_cfg constraint order promote CentreonDataClone then start CentreonFS
     pcs -f fs_cfg constraint order CentreonFS then ClusterCentreon
     # On pourrait ajouter aussi mais on l'a pas créé encore:

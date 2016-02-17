@@ -88,22 +88,22 @@ Nous allons maintenant rentrer dans le vif du sujet et partir sur l'installation
 
 .. code-block:: bash 
 
-    # yum install -y pacemaker pcs psmisc policycoreutils-python cman
+    sudo yum install -y pacemaker pcs psmisc policycoreutils-python cman
 
 
 Lorsque tous les paquets sont installés, nous devons dire au système de lancer le service pcsd au demarrage de nos machines.
 
 .. code-block:: bash
 
-    # chkconfig pcsd --add
-    # service pcsd start
+    sudo chkconfig pcsd --add
+    sudo service pcsd start
 
 Lors de l'installation, l'utilisateur ``hacluster`` sera créé.
 Nous devons lui ajouter un mot de passe sur les 2 noeuds:
 
 .. code-block:: bash
 
-    # passwd hacluster
+    sudo passwd hacluster
 
 
 .. note:: A partir de maintenant et jusqu'à nouvel ordre, nous ferons les commandes sur 1 noeuds.

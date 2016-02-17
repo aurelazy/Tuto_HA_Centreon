@@ -31,7 +31,7 @@ Alors la première commande que l'on peut faire pour se familiariser avec ``pcs`
 
 .. code-block:: bash
 
-    # pcs
+    sudo pcs
 
     Usage: pcs [-f file] [-h] [commands]...
     Control and configure pacemaker and corosync.
@@ -153,7 +153,8 @@ Creation d'un ressource
 
 .. code-block:: bash
 
-    pcs resource create cbd lsb:cbd migration-threshold=2 op monitor interval=30s --group=ClusterCentreon
+    pcs resource create cbd lsb:cbd migration-threshold=2 op monitor interval=30s \
+    --group=ClusterCentreon
 
 
 ``migration-threshold`` est le nombre de fois qu'il va essayer de redémarrer la ressource avant de basculer sur l'autre noeud.
