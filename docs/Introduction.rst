@@ -20,6 +20,6 @@ Vous pourrez trouver les articles/tutos sur lesquels je me suis basé:
 `En cas d'erreur DRBD <https://www.guillaume-leduc.fr/recuperer-drbd-de-letat-standalone-unknown.html>`_
 
 
-Dans ce tuto, nous allons parler de l'installation des outils sur une distribution CentOS 6.7 (CES3.2, Centreon Enterprise Server), mais pas de Centreon en lui-même (voir mon autre tuto sur le sujet), ensuite nous passerons sur la configuration, les tests, puis nous parlerons de l'installation de DRBD et de sa configuration.
+Dans ce tuto, nous allons parler de l'installation des outils sur une distribution CentOS 6.7 (CES3.2, Centreon Enterprise Server), mais pas de Centreon en lui-même (`voir mon autre tuto sur le sujet <http://install-centreon.rtfd.org>`_), ensuite nous passerons sur la configuration, les tests, puis nous parlerons de l'installation de DRBD et de sa configuration.
 
 Je vous souhaite une bonne lecture et n'hésitez pas à me remonter toute anomalie sur lesquelles vous pourrez tomber.
