@@ -19,6 +19,7 @@ Contents:
    Ajout_Centreon
    Install_DRBD
    Peupler_DRBD
+   Ajouter_MySQL
 
 
 Indices and tables
