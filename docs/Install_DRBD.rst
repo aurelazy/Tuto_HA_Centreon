@@ -47,7 +47,7 @@ Alors de mon coté, il n'y a que *sda* d'utilisé, donc à priori on peut partir
 
 Voila, vous pouvez faire la même chose sur le second noeud (CES3-2-slave).
 
-Nous allons maintenant installer les paquets nécessairepour utiliser DRBD.
+Nous allons maintenant installer les paquets nécessaires pour utiliser DRBD.
 
 
 Installation et configuration DRBD
@@ -188,8 +188,67 @@ Nous allons créer un fichier de configuration XML et l'envoyer lorsque nous aur
     # pcs -f fs_cfg constraint order CentreonFS the mysql
     # pcs -f fs_cfg colocation add mysql with CentreonFS INFINITY
 
-Reprendre à "REVIEW THE UPDATED CONFIGURATION"
 
+Alors, n'oubliez pas de changer ``CentreonFS`` par votre nom de filesystem. 
+Vérifiez bien aussi le chemin et nom de votre disque, pour moi ``/dev/drbd0`` que je veux monter dans ``/mnt/r0/`` qui est formatté au format ``ext4``.
+
+L'option ``Filesystem`` que nous voyons lorsque nous créons notre resource ``CentreonFS`` équivaut à ``ocf:heartbeat:Filesystem``.
+
+On va pouvoir vérifier notre configuration avec la commande:
+
+.. code-block:: bash
+    
+    pcs -f fs_cfg constraint
+
+et
+
+.. code-block:: bash
+
+    pcs -f fs_cfg resource show
+
+
+On est bon ? A priori si vous avez bien suivi toutes les commandes sans erreur.
+
+On va pouvoir pousser:
+
+.. code-block:: bash
+
+    pcs clustercib-push fs_cfg
+
+Tester notre cluster
+----------------------
+
+Je vous conseil à ce stade de bien tester le cluster pour voir si tout fonctionne corectement.
+
+Pour se faire, nous mettrons notre noeud principal en "standby":
+
+.. code-block:: bash
+
+    pcs cluster standby CES3-2
+
+    pcs status
+
+On vérifie si pas d'erreur lors du basculement signalé par un ``Failed_actions``
+
+Pour nettoyer ce genre d'erreur:
+
+.. code-block:: bash
+
+    pcs resource cleanup <resource_en_erreur>
+
+Sinon, vous devriez voir toutes vos resources passer sur le noeud secondaire. Ainsi que DRBD qui passe votre noeud secondaire en ``master`` et le primaire en ``Stopped``.
+Pourquoi il est en ``Stopped`` ? Bah !! Il est en standby !!
+
+.. code-block:: bash
+
+    pcs cluster unstandby CES3-2
+    pcs status
+
+
+Ha oui ! C'est bon !
+
+
+Bon tout fonctionne ! Il reste maintenant à peupler notre DRBD.
 
 
 
@@ -200,6 +259,7 @@ Alors voici 2 sites qui vont permettrent de remettre à flot notre synchronisati
 Les erreurs peuvent survenir lors d'un crash d'un de nos 2 serveurs, il faut donc vérifier l'état de notre synchro.
 
 `Split-Brain <https://www.hastexo.com/resources/hints-and-kinks/solve-drbd-split-brain-4-steps>`_
+
 `Standalone <https://www.guillaume-leduc.fr/recuperer-drbd-de-letat-standalone-unknown.html>`_
 
 Attention, par contre, l'etat "WFConnection" peut survenir lorsque qu'un des 2 noeud est en etat standby, donc il suffit juste de lancer la commande 
