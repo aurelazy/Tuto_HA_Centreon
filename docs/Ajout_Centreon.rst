@@ -106,7 +106,7 @@ Comme dis plus haut, ClusterIP doit être la première ressource démarré sur l
 
 .. code-block:: bash
 
-    root@CES3-2:~# pcs constaint order ClusterIP then ClusterCentreon
+    root@CES3-2:~# pcs constraint order ClusterIP then ClusterCentreon
     root@CES3-2:~# pcs constraint
     Location Constraints:
     Ordering Constraints:
@@ -140,7 +140,7 @@ Voici comment passer d'un noeud à l'autre:
 
 .. code-block:: bash
 
-    root@CES3-2:~# pcs constaint location ClusterCentreon prefers CES3-2=INFINITY
+    root@CES3-2:~# pcs constraint location ClusterCentreon prefers CES3-2=INFINITY
 
 Faites un ``pcs status`` vous verrez votre cluster basculer.
 
@@ -150,7 +150,7 @@ Bon on va enlever cette contrainte, il faut d'abord la retrouver:
 
 .. code-block:: bash
 
-    root@CES3-2:~# pcs constaint --full
+    root@CES3-2:~# pcs constraint --full
     Location Constraints:
       Resource: ClusterCentreon
         Enabled on: CES3-2 (score: INFINITY) (id:location-ClusterCentreon-CES3-2-INFINITY)
@@ -166,7 +166,7 @@ On récupère l'ID de notre contrainte, ici "location-ClusterCentreon-CES3-2-INF
 
 .. code-block:: bash
 
-    root@CES3-2:~# pcs constaint remove location-ClusterCentreon-CES3-2-INFINITY
+    root@CES3-2:~# pcs constraint remove location-ClusterCentreon-CES3-2-INFINITY
 
 
 Faites un ``pcs constraint``, moi j'ai la flemme ! Et vous verrez que cette contrainte a disparu. Et notre ressource est toujours sur CES3-2 (``pcs status``)
