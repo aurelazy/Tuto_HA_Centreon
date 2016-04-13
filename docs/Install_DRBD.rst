@@ -217,7 +217,7 @@ On va pouvoir pousser:
 
 .. code-block:: bash
 
-    pcs clustercib-push fs_cfg
+    pcs cluster cib-push fs_cfg
 
 Tester notre cluster
 ----------------------
